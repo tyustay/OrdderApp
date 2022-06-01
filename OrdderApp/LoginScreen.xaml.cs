@@ -14,54 +14,54 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace OrdderApp
-{
-    
-    public partial class LoginScreen : Window
+    namespace OrdderApp
     {
-        public LoginScreen()
+    
+        public partial class LoginScreen : Window
         {
-            InitializeComponent();
+            public LoginScreen()
+            {
+                InitializeComponent();
 
-        }
+            }
 
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
-        {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=YARIIHOKU\SQLYARIIHOKU;Initial Catalog=OrderBase;Integrated Security=True");
-            try
+            private void btnSubmit_Click(object sender, RoutedEventArgs e)
             {
-                if (sqlCon.State == ConnectionState.Closed)
-                    sqlCon.Open();
-                String query = "SELECT COUNT(1) FROM tbUser WHERE Username=@Username AND Password=@Password";
-                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
-                sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
-                int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
-                if (count == 1)
+                SqlConnection sqlCon = new SqlConnection(@"Data Source=YARIIHOKU\SQLYARIIHOKU;Initial Catalog=OrderBase;Integrated Security=True");
+                try
                 {
-                    MainWindow dashboard = new MainWindow();
-                    dashboard.Show();
-                    this.Close();
+                    if (sqlCon.State == ConnectionState.Closed)
+                        sqlCon.Open();
+                    String query = "SELECT COUNT(1) FROM tbUser WHERE Username=@Username AND Password=@Password";
+                    SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                    sqlCmd.CommandType = CommandType.Text;
+                    sqlCmd.Parameters.AddWithValue("@Username", txtUsername.Text);
+                    sqlCmd.Parameters.AddWithValue("@Password", txtPassword.Password);
+                    int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                    if (count == 1)
+                    {
+                        MainWindow dashboard = new MainWindow();
+                        dashboard.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль!");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Неверный логин или пароль!");
+                    MessageBox.Show(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                sqlCon.Close();
+                finally
+                {
+                    sqlCon.Close();
+                }
             }
         }
-    }
 
     
-}
+    }
 
 
 
