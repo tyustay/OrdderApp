@@ -46,7 +46,7 @@ namespace OrdderApp
             try
             {
                 OrderBaseEntities.GetContext().SaveChanges();
-                MessageBox.Show("Иныормация сохранена!");
+                MessageBox.Show("Информация сохранена!");
                 Manager.MainFrame.GoBack();
 
             }

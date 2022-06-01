@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrdderApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#444549">
     <Grid>
         <Grid.RowDefinitions>
+            
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Image Source="Resources/6.png" HorizontalAlignment="Left"></Image>
-        <TextBlock Text="Official trade" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"> </TextBlock>
+        <TextBlock Text="OfficialTrade" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"> </TextBlock>
         <Grid Background="#506C69" Panel.ZIndex="-2" > </Grid>
         <Grid Grid.Row="2" Background="#506C69"></Grid>
         <Frame ContentRendered="MainFrame_ContentRendered" Grid.Row="1" Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
-        <Button Content="Back" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Click="BtnBack_Click" ></Button>
+        <Button Content="Back" Name="BtnBack" Width="175" Height="30" HorizontalAlignment="Right" Margin="5" Click="BtnBack_Click" FontWeight="Bold" Background="#444549" Foreground="White"></Button>
+        
     </Grid>
 </Window>

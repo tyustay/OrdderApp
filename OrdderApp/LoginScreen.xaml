@@ -1,0 +1,21 @@
+﻿<Window x:Class="OrdderApp.LoginScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrdderApp"
+        mc:Ignorable="d"
+        Title="LoginScreen" Height="450" Width="800">
+
+    <Border Background="#506C69" Margin="20">
+            <StackPanel Margin="10,20,10,20">
+            <Label Content="Login" Foreground="black" FontSize="25" HorizontalAlignment="Center" FontWeight="Bold" ></Label>
+            <Label Content="Username" Foreground="White" HorizontalAlignment="Center" ></Label>
+                <TextBox x:Name="txtUsername" Background="#23282C" Foreground="White" FontSize="18" Width="218" HorizontalAlignment="Center"></TextBox>
+            <Label Content="Password" Foreground="White " HorizontalAlignment="Center"></Label>
+                <PasswordBox x:Name="txtPassword" Background="#23282C" Foreground="White" FontSize="18" Width="220" Height="32"  ></PasswordBox>
+            <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Войти" Background="#23282C" Foreground="White" FontSize="18" Width="140" Height="32" Margin="20" FontWeight="Bold"></Button>
+            </StackPanel>
+        </Border>
+    
+</Window>
